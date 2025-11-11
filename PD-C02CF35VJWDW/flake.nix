@@ -111,6 +111,7 @@
 
           system.defaults = {
             NSGlobalDomain.AppleICUForce24HourTime = true;
+            magicmouse.MouseButtonMode = "TwoButton";
             finder = {
               ShowPathbar = true;
               ShowStatusBar = true;

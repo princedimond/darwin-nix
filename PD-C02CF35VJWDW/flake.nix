@@ -77,6 +77,12 @@
             onActivation.upgrade = true;
           };
 
+          # Other Environment Configs
+          environment.shellAliases = {
+            fr = "nh darwin switch --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW";
+            fu = "nh darwin switch --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW --update";
+          };
+
           # Define System Services to be enabled
           services = {
             tailscale.enable = true;
@@ -133,62 +139,41 @@
                 #"/Applications/Weather.app"
                 "/System/Applications/App Store.app"
                 "/System/Applications/System Settings.app"
+              ];
+              persistent-others = [
                 {
-                  spacer = {
-                    small = false;
+                  folder = {
+                    path = "/Applications";
+                    showas = "grid";
+                    displayas = "folder";
+                  };
+                }
+                {
+                  folder = {
+                    path = "/Users/princedimond";
+                    showas = "grid";
+                    displayas = "folder";
+                  };
+                }
+                {
+                  folder = {
+                    path = "/Users/princedimond/Downloads";
+                    showas = "grid";
+                    displayas = "folder";
                   };
                 }
               ];
-              /*
-                persistent-others = ''
-                  (
-                    {
-                      tile-data = {
-                        file-data = {
-                          _CFURLString = "/Applications";
-                          _CFURLStringType = 0;
-                        };
-                        show-as = 2;
-                        display-as = 1;
-                      };
-                      tile-type = "directory-tile";
-                    }
-                    {
-                      tile-data = {
-                        file-data = {
-                          _CFURLString = "/Users/princedimond";
-                          _CFURLStringType = 0;
-                        };
-                        show-as = 2;
-                        display-as = 1;
-                      };
-                      tile-type = "directory-tile";
-                    }
-                    {
-                      tile-data = {
-                        file-data = {
-                          _CFURLString = "/Users/princedimond/Downloads";
-                          _CFURLStringType = 0;
-                        };
-                        show-as = 2;
-                        display-as = 1;
-                      };
-                      tile-type = "directory-tile";
-                    }
-                  )
-                '';
-              */
             };
           };
 
           /*
-                  programs.git = {
-                    config = {
-            	      enable = true;
-            	      userName = "princedimond";
-            	      userEmail = "princedimond@gmail.com";
-            	      };
-                  };
+            programs.git.settings = {
+              config = {
+                enable = true;
+                userName = "princedimond";
+                userEmail = "princedimond@gmail.com";
+              };
+            };
           */
 
           # Used for backwards compatibility, please read the changelog before changing.

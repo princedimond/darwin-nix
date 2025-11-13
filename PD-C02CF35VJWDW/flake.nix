@@ -7,6 +7,12 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
+    #Nixvim
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -20,6 +26,7 @@
       nix-darwin,
       nixpkgs,
       nix-homebrew,
+      nixvim,
       home-manager,
     }:
     let
@@ -47,6 +54,7 @@
             enable = true;
             brews = [
               "mas"
+              "nvm"
             ];
             casks = [
               "the-unarchiver"
@@ -65,7 +73,7 @@
               "iMovie" = 408981434;
               "dJay" = 450527929;
               "OneDrive" = 823766827;
-              "OneNote" = 784801555;
+              #"OneNote" = 784801555;
               "HP Easy Scan" = 967004861;
               "HP Print & Support" = 1474276998;
               "Bitwarden" = 1352778147;
@@ -77,10 +85,13 @@
             onActivation.upgrade = true;
           };
 
+          # Other package configs
+
           # Other Environment Configs
           environment.shellAliases = {
             fr = "nh darwin switch --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW";
             fu = "nh darwin switch --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW --update";
+            v = "nvim";
           };
 
           # Define System Services to be enabled
@@ -191,6 +202,7 @@
       darwinConfigurations."PD-C02CF35VJWDW" = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
+          inputs.nixvim.nixDarwinModules.nixvim
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {

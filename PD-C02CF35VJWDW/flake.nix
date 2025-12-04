@@ -48,6 +48,11 @@
             pkgs.nil
             pkgs.gitkraken
             pkgs.nh
+            pkgs.bitwarden-desktop
+            pkgs.reaper
+            pkgs.audacity
+            pkgs.the-unarchiver
+            #pkgs.streamdeck-ui
           ];
 
           homebrew = {
@@ -57,15 +62,15 @@
               "nvm"
             ];
             casks = [
-              "the-unarchiver"
               "microsoft-edge"
               "chrome-remote-desktop-host"
               "ferdium"
               "expressvpn"
               "onlyoffice"
               "vlc"
-              "elgato-stream-deck"
               "opencore-patcher"
+              "lmms"
+              "elgato-stream-deck"
             ];
             masApps = {
               "Davinci Resolve" = 571213070;
@@ -73,12 +78,12 @@
               "iMovie" = 408981434;
               "dJay" = 450527929;
               "OneDrive" = 823766827;
-              #"OneNote" = 784801555;
+              "OneNote" = 784801555;
               "HP Easy Scan" = 967004861;
               "HP Print & Support" = 1474276998;
-              "Bitwarden" = 1352778147;
               "TailScale" = 1475387142;
               "Windows App" = 1295203466;
+              "Donner Control" = 6738984734;
             };
             onActivation.cleanup = "zap";
             onActivation.autoUpdate = true;

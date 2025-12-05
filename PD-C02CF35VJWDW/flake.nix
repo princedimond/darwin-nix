@@ -52,6 +52,7 @@
             pkgs.reaper
             pkgs.audacity
             pkgs.the-unarchiver
+	    pkgs.input-leap
             #pkgs.streamdeck-ui
           ];
 

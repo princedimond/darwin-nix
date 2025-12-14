@@ -52,7 +52,11 @@
             pkgs.reaper
             pkgs.audacity
             pkgs.the-unarchiver
-	    pkgs.input-leap
+            pkgs.input-leap
+            pkgs.cyberduck
+            #pkgs.affine
+            #pkgs.anytype
+            #pkgs.anytype-heart
             #pkgs.streamdeck-ui
           ];
 

@@ -54,10 +54,9 @@
             pkgs.the-unarchiver
             pkgs.input-leap
             pkgs.cyberduck
-            #pkgs.affine
+            pkgs.affine
             #pkgs.anytype
             #pkgs.anytype-heart
-            #pkgs.streamdeck-ui
           ];
 
           homebrew = {

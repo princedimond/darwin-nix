@@ -6,14 +6,10 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-
-    #Nixvim
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +44,7 @@
             pkgs.nil
             pkgs.gitkraken
             pkgs.nh
-            pkgs.bitwarden-desktop
+            #pkgs.bitwarden-desktop
             pkgs.reaper
             pkgs.audacity
             pkgs.the-unarchiver
@@ -75,6 +71,8 @@
               "opencore-patcher"
               "lmms"
               "elgato-stream-deck"
+	      "teamviewer"
+	      "bitwarden"
             ];
             masApps = {
               "Davinci Resolve" = 571213070;
@@ -100,6 +98,7 @@
           environment.shellAliases = {
             fr = "nh darwin switch --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW";
             fu = "nh darwin switch --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW --update";
+            l = "ls -la";
             v = "nvim";
           };
 
@@ -208,23 +207,32 @@
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#simple
-      darwinConfigurations."PD-C02CF35VJWDW" = nix-darwin.lib.darwinSystem {
-        modules = [
-          configuration
-          inputs.nixvim.nixDarwinModules.nixvim
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              # Apple Silicon Only
-              #enableRosetta = true;
-              # User owning homebrew prefix
-              user = "princedimond";
-              #Use if homebrew was previously installed
-              #autoMigrate = true;
-            };
-          }
-        ];
+      darwinConfigurations = {
+        "PD-C02CF35VJWDW" = nix-darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          modules = [
+            configuration
+            inputs.nixvim.nixDarwinModules.nixvim
+            nix-homebrew.darwinModules.nix-homebrew
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              #home-manager.users.princedimond = import ./home.nix;
+            }
+            {
+              nix-homebrew = {
+                enable = true;
+                # Apple Silicon Only
+                #enableRosetta = true;
+                # User owning homebrew prefix
+                user = "princedimond";
+                #Use if homebrew was previously installed
+                #autoMigrate = true;
+              };
+            }
+          ];
+        };
       };
     };
 }

@@ -73,6 +73,7 @@
               "elgato-stream-deck"
 	      "teamviewer"
 	      "bitwarden"
+	      "podman-desktop"
             ];
             masApps = {
               "Davinci Resolve" = 571213070;

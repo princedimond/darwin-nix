@@ -37,7 +37,6 @@
             pkgs.warp-terminal
             pkgs.zed-editor
             pkgs.evil-helix
-            pkgs.helix-gpt
             pkgs.fastfetch
             pkgs.onefetch
             pkgs.nixd
@@ -74,6 +73,7 @@
 	      "teamviewer"
 	      "bitwarden"
 	      "podman-desktop"
+	      "anytype"
             ];
             masApps = {
               "Davinci Resolve" = 571213070;

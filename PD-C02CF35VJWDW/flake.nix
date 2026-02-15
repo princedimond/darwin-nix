@@ -70,10 +70,11 @@
               "opencore-patcher"
               "lmms"
               "elgato-stream-deck"
-	      "teamviewer"
-	      "bitwarden"
-	      "podman-desktop"
-	      "anytype"
+              "teamviewer"
+              "bitwarden"
+              "podman-desktop"
+              "anytype"
+              "obs"
             ];
             masApps = {
               "Davinci Resolve" = 571213070;

@@ -101,7 +101,9 @@
           # Other Environment Configs
           environment.shellAliases = {
             fr = "nh darwin switch --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW";
+            fb = "nh darwin boot --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW";
             fu = "nh darwin switch --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW --update";
+            fbu = "nh darwin boot --hostname PD-C02CF35VJWDW /Users/princedimond/darwin-nix/PD-C02CF35VJWDW --update";
             l = "ls -la";
             v = "nvim";
           };

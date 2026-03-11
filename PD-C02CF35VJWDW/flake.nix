@@ -50,6 +50,8 @@
             pkgs.input-leap
             pkgs.cyberduck
             pkgs.affine
+            pkgs.discord
+            pkgs.virt-viewer
             #pkgs.anytype
             #pkgs.anytype-heart
           ];
